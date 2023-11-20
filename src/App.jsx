@@ -9,6 +9,8 @@ import Home from './pages/Home.jsx';
 import ProductList from './pages/Product/List.jsx';
 import PrivateRoute from './routes/Private.jsx';
 import PublicRoute from './routes/Public.jsx';
+import ProductDetail from './pages/Product/Detail.jsx';
+import Cart from './pages/Cart.jsx';
 
 function App() {
   const user = useSelector((state) => state.userdata.user);
@@ -36,6 +38,22 @@ function App() {
         element={
           <PrivateRoute>
             <ProductList />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/product/:id"
+        element={
+          <PrivateRoute>
+            <ProductDetail />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/cart"
+        element={
+          <PrivateRoute>
+            <Cart />
           </PrivateRoute>
         }
       />

@@ -29,12 +29,15 @@ function ProductList() {
   return (
     <>
       <Header />
-      <main className="py-4 space-y-4">
+      <main className="p-4 space-y-6">
         <h2 className="text-3xl text-center font-semibold">Products</h2>
-        <p></p>
+
         <Category handleSelectedCategory={handleSelectedCategory} />
+        <p className="text-gray-600">
+          showing: <span>{displayedProducts.length}</span> items
+        </p>
         {displayedProducts && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
             {displayedProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
